@@ -7,9 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F24E6D019C98ED3000BDEC7 /* unactiveBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F24E6CE19C98ED3000BDEC7 /* unactiveBackground.png */; };
+		3F24E6D119C98ED3000BDEC7 /* unactiveBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F24E6CF19C98ED3000BDEC7 /* unactiveBackground@2x.png */; };
 		3F2BBE3A19C8AEB8007A1A1E /* WindowButtonsView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F2BBE3919C8AEB8007A1A1E /* WindowButtonsView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F2BBE4019C8AEB8007A1A1E /* WindowButtonsView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2BBE3419C8AEB8007A1A1E /* WindowButtonsView.framework */; };
 		3F2BBE4719C8AEB8007A1A1E /* WindowButtonsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BBE4619C8AEB8007A1A1E /* WindowButtonsViewTests.swift */; };
+		3F2BBE5919C8AECA007A1A1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BBE5819C8AECA007A1A1E /* AppDelegate.swift */; };
+		3F2BBE5B19C8AECA007A1A1E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BBE5A19C8AECA007A1A1E /* ViewController.swift */; };
+		3F2BBE5D19C8AECA007A1A1E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BBE5C19C8AECA007A1A1E /* Images.xcassets */; };
+		3F2BBE6019C8AECA007A1A1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BBE5E19C8AECA007A1A1E /* Main.storyboard */; };
+		3F2BBE7419C8AF26007A1A1E /* WindowButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BBE7319C8AF26007A1A1E /* WindowButtonsView.swift */; };
+		3F2BBE7519C8B0FC007A1A1E /* WindowButtonsView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2BBE3419C8AEB8007A1A1E /* WindowButtonsView.framework */; };
+		3F2BBE7619C8B0FC007A1A1E /* WindowButtonsView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2BBE3419C8AEB8007A1A1E /* WindowButtonsView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3F2BBE8719C8B5CC007A1A1E /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BBE7B19C8B5CC007A1A1E /* close.png */; };
+		3F2BBE8819C8B5CC007A1A1E /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BBE7C19C8B5CC007A1A1E /* close@2x.png */; };
+		3F2BBE8919C8B5CC007A1A1E /* closeBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BBE7D19C8B5CC007A1A1E /* closeBackground.png */; };
+		3F2BBE8A19C8B5CC007A1A1E /* closeBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BBE7E19C8B5CC007A1A1E /* closeBackground@2x.png */; };
+		3F2BBE8B19C8B5CC007A1A1E /* fullscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BBE7F19C8B5CC007A1A1E /* fullscreen.png */; };
+		3F2BBE8C19C8B5CC007A1A1E /* fullscreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BBE8019C8B5CC007A1A1E /* fullscreen@2x.png */; };
+		3F2BBE8D19C8B5CC007A1A1E /* fullscreenBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BBE8119C8B5CC007A1A1E /* fullscreenBackground.png */; };
+		3F2BBE8E19C8B5CC007A1A1E /* fullscreenBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BBE8219C8B5CC007A1A1E /* fullscreenBackground@2x.png */; };
+		3F2BBE8F19C8B5CC007A1A1E /* minimize.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BBE8319C8B5CC007A1A1E /* minimize.png */; };
+		3F2BBE9019C8B5CC007A1A1E /* minimize@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BBE8419C8B5CC007A1A1E /* minimize@2x.png */; };
+		3F2BBE9119C8B5CC007A1A1E /* minimizeBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BBE8519C8B5CC007A1A1E /* minimizeBackground.png */; };
+		3F2BBE9219C8B5CC007A1A1E /* minimizeBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F2BBE8619C8B5CC007A1A1E /* minimizeBackground@2x.png */; };
+		3F2BBE9419C8BA44007A1A1E /* WindowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2BBE9319C8BA44007A1A1E /* WindowButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -20,15 +42,58 @@
 			remoteGlobalIDString = 3F2BBE3319C8AEB8007A1A1E;
 			remoteInfo = WindowButtonsView;
 		};
+		3F2BBE7719C8B0FC007A1A1E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F2BBE2B19C8AEB8007A1A1E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F2BBE3319C8AEB8007A1A1E;
+			remoteInfo = WindowButtonsView;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3F2BBE7919C8B0FD007A1A1E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3F2BBE7619C8B0FC007A1A1E /* WindowButtonsView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3F24E6CE19C98ED3000BDEC7 /* unactiveBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unactiveBackground.png; sourceTree = "<group>"; };
+		3F24E6CF19C98ED3000BDEC7 /* unactiveBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unactiveBackground@2x.png"; sourceTree = "<group>"; };
 		3F2BBE3419C8AEB8007A1A1E /* WindowButtonsView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WindowButtonsView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2BBE3819C8AEB8007A1A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F2BBE3919C8AEB8007A1A1E /* WindowButtonsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowButtonsView.h; sourceTree = "<group>"; };
 		3F2BBE3F19C8AEB8007A1A1E /* WindowButtonsViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WindowButtonsViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2BBE4519C8AEB8007A1A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F2BBE4619C8AEB8007A1A1E /* WindowButtonsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowButtonsViewTests.swift; sourceTree = "<group>"; };
+		3F2BBE5419C8AEC9007A1A1E /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F2BBE5719C8AECA007A1A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F2BBE5819C8AECA007A1A1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3F2BBE5A19C8AECA007A1A1E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3F2BBE5C19C8AECA007A1A1E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3F2BBE5F19C8AECA007A1A1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3F2BBE7319C8AF26007A1A1E /* WindowButtonsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowButtonsView.swift; sourceTree = "<group>"; };
+		3F2BBE7B19C8B5CC007A1A1E /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		3F2BBE7C19C8B5CC007A1A1E /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
+		3F2BBE7D19C8B5CC007A1A1E /* closeBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeBackground.png; sourceTree = "<group>"; };
+		3F2BBE7E19C8B5CC007A1A1E /* closeBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeBackground@2x.png"; sourceTree = "<group>"; };
+		3F2BBE7F19C8B5CC007A1A1E /* fullscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fullscreen.png; sourceTree = "<group>"; };
+		3F2BBE8019C8B5CC007A1A1E /* fullscreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fullscreen@2x.png"; sourceTree = "<group>"; };
+		3F2BBE8119C8B5CC007A1A1E /* fullscreenBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fullscreenBackground.png; sourceTree = "<group>"; };
+		3F2BBE8219C8B5CC007A1A1E /* fullscreenBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fullscreenBackground@2x.png"; sourceTree = "<group>"; };
+		3F2BBE8319C8B5CC007A1A1E /* minimize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minimize.png; sourceTree = "<group>"; };
+		3F2BBE8419C8B5CC007A1A1E /* minimize@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "minimize@2x.png"; sourceTree = "<group>"; };
+		3F2BBE8519C8B5CC007A1A1E /* minimizeBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minimizeBackground.png; sourceTree = "<group>"; };
+		3F2BBE8619C8B5CC007A1A1E /* minimizeBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "minimizeBackground@2x.png"; sourceTree = "<group>"; };
+		3F2BBE9319C8BA44007A1A1E /* WindowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +112,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3F2BBE5119C8AEC9007A1A1E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F2BBE7519C8B0FC007A1A1E /* WindowButtonsView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -55,6 +128,7 @@
 			children = (
 				3F2BBE3619C8AEB8007A1A1E /* WindowButtonsView */,
 				3F2BBE4319C8AEB8007A1A1E /* WindowButtonsViewTests */,
+				3F2BBE5519C8AECA007A1A1E /* Demo */,
 				3F2BBE3519C8AEB8007A1A1E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +138,7 @@
 			children = (
 				3F2BBE3419C8AEB8007A1A1E /* WindowButtonsView.framework */,
 				3F2BBE3F19C8AEB8007A1A1E /* WindowButtonsViewTests.xctest */,
+				3F2BBE5419C8AEC9007A1A1E /* Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,6 +148,8 @@
 			children = (
 				3F2BBE3919C8AEB8007A1A1E /* WindowButtonsView.h */,
 				3F2BBE3719C8AEB8007A1A1E /* Supporting Files */,
+				3F2BBE7319C8AF26007A1A1E /* WindowButtonsView.swift */,
+				3F2BBE9319C8BA44007A1A1E /* WindowButton.swift */,
 			);
 			path = WindowButtonsView;
 			sourceTree = "<group>";
@@ -80,6 +157,7 @@
 		3F2BBE3719C8AEB8007A1A1E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3F2BBE7A19C8B5CC007A1A1E /* Images */,
 				3F2BBE3819C8AEB8007A1A1E /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -100,6 +178,47 @@
 				3F2BBE4519C8AEB8007A1A1E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F2BBE5519C8AECA007A1A1E /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				3F2BBE5819C8AECA007A1A1E /* AppDelegate.swift */,
+				3F2BBE5A19C8AECA007A1A1E /* ViewController.swift */,
+				3F2BBE5C19C8AECA007A1A1E /* Images.xcassets */,
+				3F2BBE5E19C8AECA007A1A1E /* Main.storyboard */,
+				3F2BBE5619C8AECA007A1A1E /* Supporting Files */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		3F2BBE5619C8AECA007A1A1E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F2BBE5719C8AECA007A1A1E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F2BBE7A19C8B5CC007A1A1E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3F24E6CE19C98ED3000BDEC7 /* unactiveBackground.png */,
+				3F24E6CF19C98ED3000BDEC7 /* unactiveBackground@2x.png */,
+				3F2BBE7B19C8B5CC007A1A1E /* close.png */,
+				3F2BBE7C19C8B5CC007A1A1E /* close@2x.png */,
+				3F2BBE7D19C8B5CC007A1A1E /* closeBackground.png */,
+				3F2BBE7E19C8B5CC007A1A1E /* closeBackground@2x.png */,
+				3F2BBE7F19C8B5CC007A1A1E /* fullscreen.png */,
+				3F2BBE8019C8B5CC007A1A1E /* fullscreen@2x.png */,
+				3F2BBE8119C8B5CC007A1A1E /* fullscreenBackground.png */,
+				3F2BBE8219C8B5CC007A1A1E /* fullscreenBackground@2x.png */,
+				3F2BBE8319C8B5CC007A1A1E /* minimize.png */,
+				3F2BBE8419C8B5CC007A1A1E /* minimize@2x.png */,
+				3F2BBE8519C8B5CC007A1A1E /* minimizeBackground.png */,
+				3F2BBE8619C8B5CC007A1A1E /* minimizeBackground@2x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +271,25 @@
 			productReference = 3F2BBE3F19C8AEB8007A1A1E /* WindowButtonsViewTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		3F2BBE5319C8AEC9007A1A1E /* Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F2BBE6D19C8AECA007A1A1E /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildPhases = (
+				3F2BBE5019C8AEC9007A1A1E /* Sources */,
+				3F2BBE5119C8AEC9007A1A1E /* Frameworks */,
+				3F2BBE5219C8AEC9007A1A1E /* Resources */,
+				3F2BBE7919C8B0FD007A1A1E /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F2BBE7819C8B0FC007A1A1E /* PBXTargetDependency */,
+			);
+			name = Demo;
+			productName = Demo;
+			productReference = 3F2BBE5419C8AEC9007A1A1E /* Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -167,6 +305,9 @@
 					3F2BBE3E19C8AEB8007A1A1E = {
 						CreatedOnToolsVersion = 6.1;
 					};
+					3F2BBE5319C8AEC9007A1A1E = {
+						CreatedOnToolsVersion = 6.1;
+					};
 				};
 			};
 			buildConfigurationList = 3F2BBE2E19C8AEB8007A1A1E /* Build configuration list for PBXProject "WindowButtonsView" */;
@@ -175,6 +316,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 3F2BBE2A19C8AEB8007A1A1E;
 			productRefGroup = 3F2BBE3519C8AEB8007A1A1E /* Products */;
@@ -183,6 +325,7 @@
 			targets = (
 				3F2BBE3319C8AEB8007A1A1E /* WindowButtonsView */,
 				3F2BBE3E19C8AEB8007A1A1E /* WindowButtonsViewTests */,
+				3F2BBE5319C8AEC9007A1A1E /* Demo */,
 			);
 		};
 /* End PBXProject section */
@@ -192,6 +335,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F2BBE8719C8B5CC007A1A1E /* close.png in Resources */,
+				3F2BBE8C19C8B5CC007A1A1E /* fullscreen@2x.png in Resources */,
+				3F2BBE8D19C8B5CC007A1A1E /* fullscreenBackground.png in Resources */,
+				3F24E6D119C98ED3000BDEC7 /* unactiveBackground@2x.png in Resources */,
+				3F2BBE8E19C8B5CC007A1A1E /* fullscreenBackground@2x.png in Resources */,
+				3F2BBE8F19C8B5CC007A1A1E /* minimize.png in Resources */,
+				3F2BBE8B19C8B5CC007A1A1E /* fullscreen.png in Resources */,
+				3F2BBE9019C8B5CC007A1A1E /* minimize@2x.png in Resources */,
+				3F2BBE9119C8B5CC007A1A1E /* minimizeBackground.png in Resources */,
+				3F2BBE9219C8B5CC007A1A1E /* minimizeBackground@2x.png in Resources */,
+				3F24E6D019C98ED3000BDEC7 /* unactiveBackground.png in Resources */,
+				3F2BBE8A19C8B5CC007A1A1E /* closeBackground@2x.png in Resources */,
+				3F2BBE8919C8B5CC007A1A1E /* closeBackground.png in Resources */,
+				3F2BBE8819C8B5CC007A1A1E /* close@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +359,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3F2BBE5219C8AEC9007A1A1E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F2BBE5D19C8AECA007A1A1E /* Images.xcassets in Resources */,
+				3F2BBE6019C8AECA007A1A1E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -209,6 +375,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F2BBE7419C8AF26007A1A1E /* WindowButtonsView.swift in Sources */,
+				3F2BBE9419C8BA44007A1A1E /* WindowButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +388,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3F2BBE5019C8AEC9007A1A1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F2BBE5B19C8AECA007A1A1E /* ViewController.swift in Sources */,
+				3F2BBE5919C8AECA007A1A1E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -228,7 +405,23 @@
 			target = 3F2BBE3319C8AEB8007A1A1E /* WindowButtonsView */;
 			targetProxy = 3F2BBE4119C8AEB8007A1A1E /* PBXContainerItemProxy */;
 		};
+		3F2BBE7819C8B0FC007A1A1E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F2BBE3319C8AEB8007A1A1E /* WindowButtonsView */;
+			targetProxy = 3F2BBE7719C8B0FC007A1A1E /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3F2BBE5E19C8AECA007A1A1E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F2BBE5F19C8AECA007A1A1E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3F2BBE4819C8AEB8007A1A1E /* Debug */ = {
@@ -315,6 +508,8 @@
 		3F2BBE4B19C8AEB8007A1A1E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -326,12 +521,15 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		3F2BBE4C19C8AEB8007A1A1E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -378,6 +576,34 @@
 			};
 			name = Release;
 		};
+		3F2BBE6E19C8AECA007A1A1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3F2BBE6F19C8AECA007A1A1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -397,6 +623,7 @@
 				3F2BBE4C19C8AEB8007A1A1E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F2BBE4D19C8AEB8007A1A1E /* Build configuration list for PBXNativeTarget "WindowButtonsViewTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +632,16 @@
 				3F2BBE4F19C8AEB8007A1A1E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F2BBE6D19C8AECA007A1A1E /* Build configuration list for PBXNativeTarget "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F2BBE6E19C8AECA007A1A1E /* Debug */,
+				3F2BBE6F19C8AECA007A1A1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
