@@ -9,10 +9,76 @@
 import Cocoa
 
 
-class WindowButton: NSButton {
+let pluginBundle = NSBundle(forClass: WindowButtonsView.self);
+
+public enum WindowButtonType {
     
-    override init!(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
+    case CloseButton
+    case MiniaturizeButton
+    case ZoomAndFullscreenButton(fullscreen:Bool)
+    
+    
+    public func defaultBackgroundImage() -> NSImage {
+        switch self {
+        case CloseButton:
+            return pluginBundle.imageForResource("closeBackground")
+        case MiniaturizeButton:
+            return pluginBundle.imageForResource("miniaturizeBackground")
+        case ZoomAndFullscreenButton:
+            return pluginBundle.imageForResource("fullscreenBackground")
+        }
+    }
+    public func defaultUnactiveBackgroundImage() -> NSImage {
+        return pluginBundle.imageForResource("unactiveBackground")
+
+    }
+    public func defaultImage() -> NSImage {
+        switch self {
+        case CloseButton:
+            return pluginBundle.imageForResource("close")
+        case MiniaturizeButton:
+            return pluginBundle.imageForResource("miniaturize")
+        case ZoomAndFullscreenButton:
+            return pluginBundle.imageForResource("zoom")
+        }
+    }
+
+    
+     func index() -> Int {
+        switch self {
+        case CloseButton:
+            return 0
+        case MiniaturizeButton:
+            return 1
+        case ZoomAndFullscreenButton:
+            return 2
+        }
+    }
+  
+    
+}
+
+
+class WindowButton: NSButton {
+    override func flagsChanged(theEvent: NSEvent!) {
+        println("dd")
+    }
+    
+    
+    init!(type aType:WindowButtonType) {
+        
+   
+        
+        super.init(frame: NSRect(x: 0,y: 0,width: 12,height: 12))
+        type = aType
+
+        
+        image = type.defaultImage()
+        backgroundImage = type.defaultBackgroundImage()
+        unactiveBackgroundImage = type.defaultUnactiveBackgroundImage()
+
+        
+        
         bordered = false
     }
 
@@ -29,6 +95,20 @@ class WindowButton: NSButton {
         return (cell() as? WindowButtonCell)!
     }
     
+    var type:WindowButtonType {
+        set {
+            buttonCell.windowButtonType = newValue
+            setNeedsDisplay()
+            
+        }
+        get {
+            return buttonCell.windowButtonType
+            
+        }
+        
+    }
+
+    
     
     var displaySymbol:Bool {
         set {
@@ -41,7 +121,7 @@ class WindowButton: NSButton {
             
         }
     }
-    
+   
     var backgroundImage:NSImage {
         set {
            buttonCell.backgroundImage = newValue
@@ -75,17 +155,36 @@ class WindowButton: NSButton {
 
 class WindowButtonCell: NSButtonCell {
     var displaySymbol:Bool = false
-    var backgroundImage:NSImage = pluginBundle.imageForResource("unactiveBackground")
+
+    var backgroundImage:NSImage = pluginBundle.imageForResource("closeBackground")
     var unactiveBackgroundImage:NSImage = pluginBundle.imageForResource("unactiveBackground")
+    var windowButtonType:WindowButtonType = .CloseButton
 
     
     override func drawBezelWithFrame(frame: NSRect, inView controlView: NSView!) {
   
     }
-    
-    override func drawImage(image: NSImage!, withFrame frame: NSRect, inView controlView: NSView!) {
-        let currentBackground = ((controlView.window?.mainWindow == true && enabled) || displaySymbol) ? backgroundImage : unactiveBackgroundImage
+    override func prepareForInterfaceBuilder() {
+        displaySymbol = true
+    }
+
+    override func awakeFromNib() {
+        #if TARGET_INTERFACE_BUILDER
+            displaySymbol = true
+
+        #endif
+
+    }
+    override func drawImage(anImage: NSImage!, withFrame frame: NSRect, inView controlView: NSView!) {
         
+        #if TARGET_INTERFACE_BUILDER
+          let currentBackground = enabled ? backgroundImage : unactiveBackgroundImage
+            
+        #else
+          let currentBackground =  (controlView.window?.mainWindow == true || displaySymbol) && enabled ? backgroundImage : unactiveBackgroundImage
+        #endif
+   
+
         var rect = frame
         rect.inset(dx:(frame.width-currentBackground.size.width)/2, dy: (frame.height-currentBackground.size.height)/2)
         rect.integerize()
@@ -115,12 +214,14 @@ class WindowButtonCell: NSButtonCell {
             
             
         }
-
-
-      
         if displaySymbol && enabled {
             super.drawImage(image, withFrame: frame, inView: controlView)
         }
+     
+
     }
-    
+
 }
+
+
+

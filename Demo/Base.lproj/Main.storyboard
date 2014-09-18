@@ -651,7 +651,8 @@
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" resizable="YES"/>
+                        <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -662,7 +663,7 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="354" y="252"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -673,16 +674,16 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="yYl-XH-FYo" customClass="WindowButtonsView" customModule="WindowButtonsView">
-                                <rect key="frame" x="20" y="219" width="187" height="31"/>
+                                <rect key="frame" x="381" y="226" width="79" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="AOc-vW-O2T"/>
+                                    <constraint firstAttribute="height" constant="24" id="Phg-Qh-Xdl"/>
+                                    <constraint firstAttribute="width" constant="79" id="kNU-hj-0gH"/>
                                 </constraints>
                             </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="yYl-XH-FYo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="0rM-VR-Viu"/>
-                            <constraint firstItem="yYl-XH-FYo" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="5Wy-Dz-tJl"/>
-                            <constraint firstAttribute="trailing" secondItem="yYl-XH-FYo" secondAttribute="trailing" constant="273" id="oPD-gM-ZWC"/>
+                            <constraint firstAttribute="trailing" secondItem="yYl-XH-FYo" secondAttribute="trailing" constant="20" symbolic="YES" id="Rne-C3-gif"/>
+                            <constraint firstItem="yYl-XH-FYo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="yxd-iy-nmb"/>
                         </constraints>
                     </view>
                 </viewController>
