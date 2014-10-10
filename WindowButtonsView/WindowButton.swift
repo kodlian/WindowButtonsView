@@ -21,25 +21,25 @@ public enum WindowButtonType {
     public func defaultBackgroundImage() -> NSImage {
         switch self {
         case CloseButton:
-            return pluginBundle.imageForResource("closeBackground")
+            return pluginBundle.imageForResource("closeBackground")!
         case MiniaturizeButton:
-            return pluginBundle.imageForResource("miniaturizeBackground")
+            return pluginBundle.imageForResource("miniaturizeBackground")!
         case ZoomAndFullscreenButton:
-            return pluginBundle.imageForResource("fullscreenBackground")
+            return pluginBundle.imageForResource("fullscreenBackground")!
         }
     }
     public func defaultUnactiveBackgroundImage() -> NSImage {
-        return pluginBundle.imageForResource("unactiveBackground")
+        return pluginBundle.imageForResource("unactiveBackground")!
 
     }
     public func defaultImage() -> NSImage {
         switch self {
         case CloseButton:
-            return pluginBundle.imageForResource("close")
+            return pluginBundle.imageForResource("close")!
         case MiniaturizeButton:
-            return pluginBundle.imageForResource("miniaturize")
+            return pluginBundle.imageForResource("miniaturize")!
         case ZoomAndFullscreenButton:
-            return pluginBundle.imageForResource("zoom")
+            return pluginBundle.imageForResource("zoom")!
         }
     }
 
@@ -60,11 +60,6 @@ public enum WindowButtonType {
 
 
 class WindowButton: NSButton {
-    override func flagsChanged(theEvent: NSEvent!) {
-        println("dd")
-    }
-    
-    
     init!(type aType:WindowButtonType) {
         
    
@@ -82,13 +77,13 @@ class WindowButton: NSButton {
         bordered = false
     }
 
-    required init!(coder: NSCoder!) {
+    required init?(coder: NSCoder) {
         super.init(coder: coder)
 
     }
     
     
-   override class func cellClass() -> AnyClass! {
+   override class func cellClass() -> AnyClass? {
         return WindowButtonCell.self
     }
     var buttonCell:WindowButtonCell {
@@ -156,12 +151,12 @@ class WindowButton: NSButton {
 class WindowButtonCell: NSButtonCell {
     var displaySymbol:Bool = false
 
-    var backgroundImage:NSImage = pluginBundle.imageForResource("closeBackground")
-    var unactiveBackgroundImage:NSImage = pluginBundle.imageForResource("unactiveBackground")
+    var backgroundImage:NSImage = pluginBundle.imageForResource("closeBackground")!
+    var unactiveBackgroundImage:NSImage = pluginBundle.imageForResource("unactiveBackground")!
     var windowButtonType:WindowButtonType = .CloseButton
 
     
-    override func drawBezelWithFrame(frame: NSRect, inView controlView: NSView!) {
+    override func drawBezelWithFrame(frame: NSRect, inView controlView: NSView) {
   
     }
     override func prepareForInterfaceBuilder() {
@@ -175,7 +170,7 @@ class WindowButtonCell: NSButtonCell {
         #endif
 
     }
-    override func drawImage(anImage: NSImage!, withFrame frame: NSRect, inView controlView: NSView!) {
+    override func drawImage(anImage: NSImage, withFrame frame: NSRect, inView controlView: NSView) {
         
         #if TARGET_INTERFACE_BUILDER
           let currentBackground = enabled ? backgroundImage : unactiveBackgroundImage
@@ -193,29 +188,33 @@ class WindowButtonCell: NSButtonCell {
         
         if highlighted {
             NSGraphicsContext.saveGraphicsState()
-            let ctx = NSGraphicsContext.currentContext().CGContext
-            let cgImage = currentBackground.CGImageForProposedRect(&rect, context: NSGraphicsContext.currentContext(), hints: nil).takeUnretainedValue()
-            
-            
-            //Create the mask
-            let scale = controlView.window?.screen.backingScaleFactor ?? 1
-            let info = CGBitmapInfo(rawValue:CGImageAlphaInfo.Only.rawValue)
-            let bitmapCtx = CGBitmapContextCreate(nil, CGImageGetWidth(cgImage), CGImageGetHeight(cgImage), 8, 0, nil, info)
-            CGContextDrawImage(bitmapCtx, CGRectMake(0, 0, currentBackground.size.width * scale, currentBackground.size.height * scale), cgImage)
-            let maskRef: CGImageRef = CGBitmapContextCreateImage(bitmapCtx)
-            
-            // draw black onverlay
-            CGContextClipToMask(ctx, NSRectToCGRect(rect), maskRef);
-            CGContextSetFillColorWithColor(ctx, CGColorGetConstantColor(kCGColorBlack))
-            CGContextSetAlpha(ctx, 0.2)
-            CGContextFillRect(ctx, rect)
+            let ctx = NSGraphicsContext.currentContext()?.CGContext
+            if let cgImage = currentBackground.CGImageForProposedRect(&rect, context: NSGraphicsContext.currentContext(), hints: nil)?.takeUnretainedValue() {
+                //Create the mask
+                let scale = controlView.window?.screen?.backingScaleFactor ?? 1
+                let info = CGBitmapInfo(rawValue:CGImageAlphaInfo.Only.rawValue)
+                let bitmapCtx = CGBitmapContextCreate(nil, CGImageGetWidth(cgImage), CGImageGetHeight(cgImage), 8, 0, nil, info)
+                CGContextDrawImage(bitmapCtx, CGRectMake(0, 0, currentBackground.size.width * scale, currentBackground.size.height * scale), cgImage)
+                let maskRef: CGImageRef = CGBitmapContextCreateImage(bitmapCtx)
+                
+                // draw black onverlay
+                CGContextClipToMask(ctx, NSRectToCGRect(rect), maskRef);
+                CGContextSetFillColorWithColor(ctx, CGColorGetConstantColor(kCGColorBlack))
+                CGContextSetAlpha(ctx, 0.2)
+                CGContextFillRect(ctx, rect)
+                
+                
+            }
             
             NSGraphicsContext.restoreGraphicsState()
             
             
         }
         if displaySymbol && enabled {
-            super.drawImage(image, withFrame: frame, inView: controlView)
+            if let img = self.image {
+                super.drawImage(img, withFrame: frame, inView: controlView)
+
+            }
         }
      
 

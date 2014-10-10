@@ -11,7 +11,7 @@ import Cocoa
 
 extension NSWindow {
     var canGoFullscreen:Bool {
-        return (collectionBehavior & NSWindowCollectionBehavior.FullScreenAuxiliary) != nil || (collectionBehavior & NSWindowCollectionBehavior.FullScreenPrimary) != nil
+        return (collectionBehavior & NSWindowCollectionBehavior.FullScreenPrimary ) != nil //|| (collectionBehavior & NSWindowCollectionBehavior.FullScreenAuxiliary) != nil
     }
     var canClose:Bool {
         return (styleMask & NSClosableWindowMask) == NSClosableWindowMask;
@@ -31,7 +31,7 @@ extension NSWindow {
 @IBDesignable
 public class WindowButtonsView: NSView {
     
-    var delegate:WindowButtonsViewDelegate?
+    public var delegate:WindowButtonsViewDelegate?
     
     let buttons = [WindowButton(type:.CloseButton),WindowButton(type:.MiniaturizeButton),WindowButton(type:.ZoomAndFullscreenButton(fullscreen:false))]
     
@@ -44,7 +44,7 @@ public class WindowButtonsView: NSView {
 
     @IBInspectable public var closeImage:NSImage {
         get {
-           return buttonForType(.CloseButton).image
+           return buttonForType(.CloseButton).image!
         }
         set {
             buttonForType(.CloseButton).image = newValue
@@ -52,23 +52,23 @@ public class WindowButtonsView: NSView {
     }
     @IBInspectable public var  miniaturizeImage:NSImage {
         get {
-            return buttonForType(.MiniaturizeButton).image
+            return buttonForType(.MiniaturizeButton).image!
         }
         set {
             buttonForType(.MiniaturizeButton).image = newValue
         }
     }
-    @IBInspectable public var zoomImage:NSImage? = pluginBundle.imageForResource("zoom"){
+    @IBInspectable public var zoomImage:NSImage? = pluginBundle.imageForResource("zoom")!{
         didSet {
             updateZoomAndFullscreenButton()
         }
     }
-    @IBInspectable public var fullscreenImage:NSImage? = pluginBundle.imageForResource("fullscreen") {
+    @IBInspectable public var fullscreenImage:NSImage? = pluginBundle.imageForResource("fullscreen")! {
         didSet {
             updateZoomAndFullscreenButton()
         }
     }
-    @IBInspectable public var fullscreenOffImage:NSImage? = pluginBundle.imageForResource("fullscreenOff"){
+    @IBInspectable public var fullscreenOffImage:NSImage? = pluginBundle.imageForResource("fullscreenOff")!{
         didSet {
             updateZoomAndFullscreenButton()
         }
@@ -85,7 +85,7 @@ public class WindowButtonsView: NSView {
     }
     @IBInspectable public var  miniaturizeBackgroundImage:NSImage {
         get {
-            return buttonForType(.MiniaturizeButton).alternateImage
+            return buttonForType(.MiniaturizeButton).alternateImage!
         }
         set {
             buttonForType(.MiniaturizeButton).alternateImage = newValue
@@ -93,7 +93,7 @@ public class WindowButtonsView: NSView {
     }
     @IBInspectable public var zoomAndFullscreenBackgroundImage:NSImage {
         get {
-            return buttonForType(.ZoomAndFullscreenButton(fullscreen:false)).alternateImage
+            return buttonForType(.ZoomAndFullscreenButton(fullscreen:false)).alternateImage!
         }
         set {
             buttonForType(.ZoomAndFullscreenButton(fullscreen:false)).alternateImage = newValue
@@ -101,7 +101,7 @@ public class WindowButtonsView: NSView {
     }
     
     
-    @IBInspectable public var unactiveBackgroundImage:NSImage = pluginBundle.imageForResource("unactiveBackground") {
+    @IBInspectable public var unactiveBackgroundImage:NSImage = pluginBundle.imageForResource("unactiveBackground")! {
         didSet {
             for button in buttons {
                 button.unactiveBackgroundImage = unactiveBackgroundImage
@@ -115,7 +115,7 @@ public class WindowButtonsView: NSView {
 
     
     //MARK: - life cycle
-    required public init(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         for (index,button) in enumerate(buttons) {
             button.translatesAutoresizingMaskIntoConstraints = false
@@ -190,9 +190,9 @@ public class WindowButtonsView: NSView {
     }
     
     private func updateButtonsState(){
-        let notFullscreen = window?.canGoFullscreen == true
-        buttonForType(.CloseButton).enabled = window?.canClose == true && !notFullscreen
-        buttonForType(.MiniaturizeButton).enabled = window?.canMiniaturize == true && !notFullscreen
+        let notFullscreen = window?.inFullScreen == false
+        buttonForType(.CloseButton).enabled = window?.canClose == true && notFullscreen
+        buttonForType(.MiniaturizeButton).enabled = window?.canMiniaturize == true && notFullscreen
 
     }
     
@@ -238,10 +238,10 @@ public class WindowButtonsView: NSView {
         addTrackingArea(trackingArea!)
         
     }
-    public override func mouseEntered(theEvent: NSEvent!) {
+    public override func mouseEntered(theEvent: NSEvent) {
         mouseInside = true
     }
-     public override func mouseExited(theEvent: NSEvent!) {
+     public override func mouseExited(theEvent: NSEvent) {
         mouseInside = false
     }
     
@@ -284,7 +284,7 @@ public class WindowButtonsView: NSView {
 }
 
 
-protocol WindowButtonsViewDelegate {
+public protocol WindowButtonsViewDelegate {
      func  windowButtonsView(windowButtonsView:WindowButtonsView,  willPerformActionforButton:WindowButtonType) -> Bool
      func  windowButtonsView(windowButtonsView:WindowButtonsView,  didPerformActionforButton:WindowButtonType)
 }
