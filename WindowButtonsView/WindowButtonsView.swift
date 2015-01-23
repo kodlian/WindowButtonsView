@@ -261,7 +261,7 @@ public class WindowButtonsView: NSView {
     
     private func updateZoomAndFullscreenButton() {
         
-        zoomAndFullscreenButton.type = .ZoomAndFullscreenButton(fullscreen:window?.canGoFullscreen == true && !alternateKeyPressed)
+        zoomAndFullscreenButton.type = .ZoomAndFullscreenButton(fullscreen:(window?.canGoFullscreen == true && !alternateKeyPressed) || window?.inFullScreen == true)
         
         if window?.inFullScreen == true {
             zoomAndFullscreenButton.image = fullscreenOffImage
