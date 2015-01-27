@@ -172,7 +172,8 @@ public class WindowButtonsView: NSView {
         
      
          updateButtonsState()
-         updateZoomAndFullscreenButton()
+        updateZoomAndFullscreenButton()
+
     }
     
     //MARK: button
@@ -191,7 +192,7 @@ public class WindowButtonsView: NSView {
     
     private func updateButtonsState(){
         let notFullscreen = window?.inFullScreen == false
-        buttonForType(.CloseButton).enabled = window?.canClose == true && notFullscreen
+        buttonForType(.CloseButton).enabled = window?.canClose == true
         buttonForType(.MiniaturizeButton).enabled = window?.canMiniaturize == true && notFullscreen
 
     }
@@ -255,6 +256,7 @@ public class WindowButtonsView: NSView {
     }
     
     func windowDidToggleFullscreen(notification:NSNotification) {
+       updateButtonsState()
         updateZoomAndFullscreenButton()
 
     }
