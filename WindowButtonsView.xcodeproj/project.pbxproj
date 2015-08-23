@@ -98,6 +98,7 @@
 		3F3AAA4E19C9F6FB009DFF17 /* miniaturize@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "miniaturize@2x.png"; sourceTree = "<group>"; };
 		3F3AAA4F19C9F6FB009DFF17 /* miniaturizeBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = miniaturizeBackground.png; sourceTree = "<group>"; };
 		3F3AAA5019C9F6FB009DFF17 /* miniaturizeBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "miniaturizeBackground@2x.png"; sourceTree = "<group>"; };
+		3F6E3CA21B1B94CD0062694A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		3F8AF1F319CB44470016C919 /* fullscreenOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fullscreenOff.png; sourceTree = "<group>"; };
 		3F8AF1F419CB44470016C919 /* fullscreenOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fullscreenOff@2x.png"; sourceTree = "<group>"; };
 		3FAFFD0A19CAE31D0079B6D7 /* zoom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zoom.png; sourceTree = "<group>"; };
@@ -308,7 +309,8 @@
 		3F2BBE2B19C8AEB8007A1A1E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Jérémy Marchand";
 				TargetAttributes = {
 					3F2BBE3319C8AEB8007A1A1E = {
@@ -433,6 +435,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				3F2BBE5F19C8AECA007A1A1E /* Base */,
+				3F6E3CA21B1B94CD0062694A /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -535,6 +539,7 @@
 				INFOPLIST_FILE = WindowButtonsView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kodlian.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -555,6 +560,7 @@
 				INFOPLIST_FILE = WindowButtonsView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kodlian.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -574,6 +580,7 @@
 				);
 				INFOPLIST_FILE = WindowButtonsViewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kodlian.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -588,6 +595,7 @@
 				);
 				INFOPLIST_FILE = WindowButtonsViewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kodlian.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -604,6 +612,7 @@
 				);
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kodlian.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -616,6 +625,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kodlian.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

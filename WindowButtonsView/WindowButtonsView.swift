@@ -11,7 +11,7 @@ import Cocoa
 
 extension NSWindow {
     var canGoFullscreen:Bool {
-        return (collectionBehavior & NSWindowCollectionBehavior.FullScreenPrimary ) != nil //|| (collectionBehavior & NSWindowCollectionBehavior.FullScreenAuxiliary) != nil
+        return collectionBehavior.contains(.FullScreenPrimary) //|| (collectionBehavior & NSWindowCollectionBehavior.FullScreenAuxiliary) != nil
     }
     var canClose:Bool {
         return (styleMask & NSClosableWindowMask) == NSClosableWindowMask;
@@ -117,31 +117,31 @@ public class WindowButtonsView: NSView {
     //MARK: - life cycle
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
-        for (index,button) in enumerate(buttons) {
+        for (index,button) in buttons.enumerate() {
             button.translatesAutoresizingMaskIntoConstraints = false
             button.tag = index
             button.action = "performButtonAction:"
             button.target = self
             addSubview(button)
-            let constraintV = NSLayoutConstraint.constraintsWithVisualFormat("V:[b(12)]", options: nil, metrics: nil, views: ["b":button])
+            let constraintV = NSLayoutConstraint.constraintsWithVisualFormat("V:[b(12)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["b":button])
             addConstraints(constraintV)
             addConstraint(NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: 0.0))
         }
         
         let views = ["b1":buttons[0],"b2":buttons[1],"b3":buttons[2]];
         
-        let constraintsH = NSLayoutConstraint.constraintsWithVisualFormat("[b1(12)]-8-[b2(12)]-8-[b3(12)]", options: nil, metrics: nil, views: views)
+        let constraintsH = NSLayoutConstraint.constraintsWithVisualFormat("[b1(12)]-8-[b2(12)]-8-[b3(12)]", options: NSLayoutFormatOptions(), metrics: nil, views: views)
         addConstraints(constraintsH)
         addConstraint(NSLayoutConstraint(item: buttons[1], attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterX, multiplier: 1.0, constant: 0.0))
 
         
         // Alt
-        flagMonitor = NSEvent.addGlobalMonitorForEventsMatchingMask(NSEventMask.FlagsChangedMask, handler: { (event:NSEvent!) -> Void in
-           self.alternateKeyPressed = (event.modifierFlags & NSEventModifierFlags.AlternateKeyMask) == NSEventModifierFlags.AlternateKeyMask
+        flagMonitor = NSEvent.addGlobalMonitorForEventsMatchingMask(NSEventMask.FlagsChangedMask, handler: { (event:NSEvent) -> Void in
+           self.alternateKeyPressed = event.modifierFlags.contains(NSEventModifierFlags.AlternateKeyMask)
         })
-        localFlagMonitor = NSEvent.addLocalMonitorForEventsMatchingMask(NSEventMask.FlagsChangedMask, handler: { (event:NSEvent!) -> NSEvent! in
+        localFlagMonitor = NSEvent.addLocalMonitorForEventsMatchingMask(NSEventMask.FlagsChangedMask, handler: { (event:NSEvent) -> NSEvent! in
             
-            self.alternateKeyPressed = (event.modifierFlags & NSEventModifierFlags.AlternateKeyMask) == NSEventModifierFlags.AlternateKeyMask
+            self.alternateKeyPressed = event.modifierFlags.contains(NSEventModifierFlags.AlternateKeyMask)
 
             
             return event
@@ -211,9 +211,6 @@ public class WindowButtonsView: NSView {
                 window?.performZoom(sender)
             case .ZoomAndFullscreenButton(fullscreen:true):
                 window?.toggleFullScreen(sender)
-
-            default:
-                fatalError("")
                 
                 
             }
@@ -235,7 +232,7 @@ public class WindowButtonsView: NSView {
             removeTrackingArea(area)
         }
         
-        trackingArea = NSTrackingArea(rect: bounds, options: NSTrackingAreaOptions.ActiveAlways|NSTrackingAreaOptions.MouseEnteredAndExited, owner: self, userInfo: nil)
+        trackingArea = NSTrackingArea(rect: bounds, options: [NSTrackingAreaOptions.ActiveAlways,NSTrackingAreaOptions.MouseEnteredAndExited], owner: self, userInfo: nil)
         addTrackingArea(trackingArea!)
         
     }

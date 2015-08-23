@@ -87,7 +87,7 @@ class WindowButton: NSButton {
         return WindowButtonCell.self
     }
     var buttonCell:WindowButtonCell {
-        return (cell() as? WindowButtonCell)!
+        return (cell as? WindowButtonCell)!
     }
     
     var type:WindowButtonType {
@@ -189,13 +189,13 @@ class WindowButtonCell: NSButtonCell {
         if highlighted {
             NSGraphicsContext.saveGraphicsState()
             let ctx = NSGraphicsContext.currentContext()?.CGContext
-            if let cgImage = currentBackground.CGImageForProposedRect(&rect, context: NSGraphicsContext.currentContext(), hints: nil)?.takeUnretainedValue() {
+            if let cgImage = currentBackground.CGImageForProposedRect(&rect, context: NSGraphicsContext.currentContext(), hints: nil) {
                 //Create the mask
                 let scale = controlView.window?.screen?.backingScaleFactor ?? 1
                 let info = CGBitmapInfo(rawValue:CGImageAlphaInfo.Only.rawValue)
-                let bitmapCtx = CGBitmapContextCreate(nil, CGImageGetWidth(cgImage), CGImageGetHeight(cgImage), 8, 0, nil, info)
+                let bitmapCtx = CGBitmapContextCreate(nil, CGImageGetWidth(cgImage), CGImageGetHeight(cgImage), 8, 0, nil, info.rawValue)
                 CGContextDrawImage(bitmapCtx, CGRectMake(0, 0, currentBackground.size.width * scale, currentBackground.size.height * scale), cgImage)
-                let maskRef: CGImageRef = CGBitmapContextCreateImage(bitmapCtx)
+                let maskRef: CGImageRef = CGBitmapContextCreateImage(bitmapCtx)!
                 
                 // draw black onverlay
                 CGContextClipToMask(ctx, NSRectToCGRect(rect), maskRef);
@@ -203,7 +203,7 @@ class WindowButtonCell: NSButtonCell {
                 CGContextSetAlpha(ctx, 0.2)
                 CGContextFillRect(ctx, rect)
                 
-                
+
             }
             
             NSGraphicsContext.restoreGraphicsState()
