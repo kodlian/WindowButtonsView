@@ -181,8 +181,8 @@ class WindowButtonCell: NSButtonCell {
    
 
         var rect = frame
-        rect.inset(dx:(frame.width-currentBackground.size.width)/2, dy: (frame.height-currentBackground.size.height)/2)
-        rect.integerize()
+        rect.insetInPlace(dx:(frame.width-currentBackground.size.width)/2, dy: (frame.height-currentBackground.size.height)/2)
+        rect.makeIntegralInPlace()
         
         currentBackground.drawInRect(rect)
         
