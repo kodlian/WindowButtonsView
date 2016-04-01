@@ -120,7 +120,7 @@ public class WindowButtonsView: NSView {
         for (index, button) in buttons.enumerate() {
             button.translatesAutoresizingMaskIntoConstraints = false
             button.tag = index
-            button.action = "performButtonAction:"
+            button.action = #selector(WindowButtonsView.performButtonAction(_:))
             button.target = self
             addSubview(button)
             let constraintV = NSLayoutConstraint.constraintsWithVisualFormat("V:[b(12)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["b":button])
