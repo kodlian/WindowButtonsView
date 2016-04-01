@@ -111,12 +111,18 @@ public class WindowButtonsView: NSView {
 
 
 
-
-
-
     //MARK: - life cycle
+    override public init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        initliaze()
+    }
+
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
+        initliaze()
+    }
+    
+    func initliaze() {
         for (index, button) in buttons.enumerate() {
             button.translatesAutoresizingMaskIntoConstraints = false
             button.tag = index
@@ -127,26 +133,25 @@ public class WindowButtonsView: NSView {
             addConstraints(constraintV)
             addConstraint(NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.CenterY, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterY, multiplier: 1.0, constant: 0.0))
         }
-
+        
         let views = ["b1":buttons[0],"b2":buttons[1],"b3":buttons[2]]
-
+        
         let constraintsH = NSLayoutConstraint.constraintsWithVisualFormat("[b1(12)]-8-[b2(12)]-8-[b3(12)]", options: NSLayoutFormatOptions(), metrics: nil, views: views)
         addConstraints(constraintsH)
         addConstraint(NSLayoutConstraint(item: buttons[1], attribute: NSLayoutAttribute.CenterX, relatedBy: NSLayoutRelation.Equal, toItem: self, attribute: NSLayoutAttribute.CenterX, multiplier: 1.0, constant: 0.0))
-
-
+        
+        
         // Alt
         flagMonitor = NSEvent.addGlobalMonitorForEventsMatchingMask(NSEventMask.FlagsChangedMask, handler: { (event: NSEvent) -> Void in
-           self.alternateKeyPressed = event.modifierFlags.contains(NSEventModifierFlags.AlternateKeyMask)
+            self.alternateKeyPressed = event.modifierFlags.contains(NSEventModifierFlags.AlternateKeyMask)
         })
         localFlagMonitor = NSEvent.addLocalMonitorForEventsMatchingMask(NSEventMask.FlagsChangedMask, handler: { (event: NSEvent) -> NSEvent! in
-
+            
             self.alternateKeyPressed = event.modifierFlags.contains(NSEventModifierFlags.AlternateKeyMask)
-
-
+            
+            
             return event
-         })
-
+        })
     }
 
     deinit {
