@@ -1,7 +1,7 @@
 
 # WindowButtonsView
 
-![Logo](/kodlian/WindowButtonsView/raw/master/icon.png)
+![Logo](icon.png)
 
 ![Platform](http://img.shields.io/badge/platform-MacOS-orange.svg?style=flat)
 
