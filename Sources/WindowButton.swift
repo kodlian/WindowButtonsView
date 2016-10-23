@@ -205,7 +205,7 @@ class WindowButtonCell: NSButtonCell {
                     //Create the mask
                     let width = cgImage.width
                     let height = cgImage.height
-                    let colorSpace = cgImage.colorSpace ?? CGColorSpaceCreateDeviceRGB()
+                    let colorSpace = CGColorSpaceCreateDeviceGray()
                     let bitmapInfo = CGImageAlphaInfo.alphaOnly.rawValue
                     
                     if let bitmapCtx = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo) {
